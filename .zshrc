@@ -130,6 +130,7 @@ zstyle -e ':completion:*:hosts' hosts 'reply=(
    ${=${(f)"$(cat /etc/hosts(|)(N) <<(ypcat hosts 2>/dev/null))"}%%\#*}
    ${=${${${${(@M)${(f)"$(cat ~/.ssh/config 2>/dev/null)"}:#host *}#host }:#*\**}:#*\?*}}
    ${=${${${${(@M)${(f)"$(cat ~/.ssh/config.d/pro 2>/dev/null)"}:#host *}#host }:#*\**}:#*\?*}}
+   ${=${${${${(@M)${(f)"$(cat ~/.ssh/config.d/bastion_config 2>/dev/null)"}:#host *}#host }:#*\**}:#*\?*}}
 )'
 
 
