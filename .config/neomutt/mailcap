@@ -1,0 +1,24 @@
+# mailcap settings
+
+## images
+image/jpg; ~/.config/neomutt/scripts/view_attachment.sh %s jpg
+image/jpeg; ~/.config/neomutt/scripts/view_attachment.sh %s jpg
+image/pjpeg; ~/.config/neomutt/scripts/view_attachment.sh %s jpg
+image/png; ~/.config/neomutt/scripts/view_attachment.sh %s png
+image/gif; ~/.config/neomutt/scripts/view_attachment.sh %s gif
+
+## pdfs
+application/pdf; ~/.config/neomutt/scripts/view_attachment.sh %s pdf
+
+## calendar invites.
+# text/calendar; khal import '%s'
+# application/ics; khal import '%s'
+
+## html
+
+# explicitly render in browser with "v" (view attachment):
+text/html; CHARSET=%{charset} ~/.config/neomutt/scripts/view_attachment.sh %s html
+
+# try to display implicitly using links:
+text/html; ~/.config/neomutt/scripts/mutt-html %s; copiousoutput
+text/plain; ~/.config/neomutt/scripts/view_mail.sh %s %{charset}; needsterminal

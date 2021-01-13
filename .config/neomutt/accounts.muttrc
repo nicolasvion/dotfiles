@@ -1,0 +1,3 @@
+# accounts settings
+source ~/.config/neomutt/private/shared.muttrc
+source ~/.config/neomutt/private/main.muttrc
