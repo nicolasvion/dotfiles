@@ -1,0 +1,52 @@
+[color]
+  ui = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = 11
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[color "diff"]
+  whitespace = red reverse
+  commit = yellow bold
+
+[core]
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore
+  editor = nvim
+  pager = diff-so-fancy | less --tabs=2 -rFX
+
+[pull]
+  rebase = true
+[push]
+  default = simple
+
+[include]
+  path = ~/.gitconfig.local
+  path = ~/.gitaliases
+
+[diff]
+  tool = vimdiff3
+[difftool]
+  prompt = false
+
+[merge]
+  tool = vimdiff3
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[difftool "vimdiff3"]
+  path = nvim
+[mergetool "vimdiff3"]
+  path = nvim
+[global]
