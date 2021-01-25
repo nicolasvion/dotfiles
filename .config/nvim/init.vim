@@ -303,6 +303,7 @@ nnoremap c+ :CmusNext<cr>
 
 " launch gitlog
 nnoremap gs :Git status<cr>
+nnoremap gf :Git pull<cr>
 nnoremap gd :Git diff<cr>
 nnoremap gl :Glog<cr>
 nnoremap gb :Twiggy<cr>
