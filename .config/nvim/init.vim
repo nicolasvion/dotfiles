@@ -59,6 +59,7 @@ Plug 'hashivim/vim-terraform'
 "" markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'skanehira/preview-markdown.vim'
 
 "" python
 Plug 'heavenshell/vim-pydocstring'
@@ -272,6 +273,12 @@ nnoremap ph :split<CR>
 " switch pane with pr
 nnoremap pr <C-w>r
 
+" mapping md to markdown renderer via mdr
+" https://github.com/MichaelMure/mdr.git
+noremap md :PreviewMarkdown<CR>
+let g:preview_markdown_parser="glow"
+let g:preview_markdown_vertical=1
+
 " mapping ps,pz,pd,ps to switch beetween pane
 noremap ps  <c-w>j
 noremap pz <c-w>k
@@ -418,6 +425,7 @@ let g:NERDTreeWinSize = 35
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = '%#NonText#'
+let NERDTreeIgnore = ['\.pyc$','.idea']
 
 au FileType * :call NERDTreeMouse()
 au WinEnter * :call NERDTreeMouse()

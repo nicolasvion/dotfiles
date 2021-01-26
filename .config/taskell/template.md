@@ -1,8 +1,8 @@
 ## To Do
 
+## In progress
 
-## Doing
-
+## In validation
 
 ## Done
 

@@ -23,9 +23,11 @@ eval "$(gdircolors ~/.dir_colors)"
 bindkey "\e[3~" delete-char
 
 # alt + arrow to move by word
-bindkey "^[f" forward-word
-bindkey "^[b" backward-word
-
+# https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
+bindkey "[D" backward-word
+bindkey "[C" forward-word
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line
 
 # ---------- functions ---------- #
 
@@ -35,7 +37,6 @@ function tmux-work {
   tmux new-session -d -s work 'cd ~/ ; taskell'
   tmux split-window -p 1 -v 'cmus'
   tmux new-window -t work:1 'cd ~/work/ && nvim'
-  tmux new-window -t work:2 'cd ~/work/github/nicolasvion/dotfiles ; zsh'
 
   tmux select-window -t work:1
   tmux -2 attach-session -t work:1
