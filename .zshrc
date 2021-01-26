@@ -1,10 +1,17 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # zshrc configuration with theme nord
 # https://raw.githubusercontent.com/TyWR/Nord-zsh/master/tywr.zsh-theme
 
 # ---------- theme ---------- #
 
-ZSH_THEME="nord"
-
+# ZSH_THEME="nord"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # ---------- variables ---------- #
 
@@ -36,10 +43,14 @@ function exists { which $1 &> /dev/null }
 function tmux-work {
   tmux new-session -d -s work 'cd ~/ ; taskell'
   tmux split-window -p 1 -v 'cmus'
-  tmux new-window -t work:1 'cd ~/work/ && nvim'
+  tmux new-window -t work:1 -n github 'cd ~/work/github && nvim'
+  tmux new-window -t work:2 -n gitlab 'cd ~/work/gitlab && nvim'
+  tmux new-window -t work:3 -n devops 'cd ~/work/azure_devops && nvim'
+  tmux new-window -t work:4 -n dev 'cd ~/work/dev && nvim'
+  tmux new-window -t work:5 -n bastion 'cd ~/work/ && ssh -L 8443:localhost:8443 -D 1234 bastion'
 
-  tmux select-window -t work:1
-  tmux -2 attach-session -t work:1
+  tmux select-window -t work:2
+  tmux -2 attach-session -t work:2
 }
 
 function update_os() {
@@ -48,7 +59,7 @@ function update_os() {
   read -s rep
   if [[ $rep = "y" ]]
   then
-    sudo softwareupdate -i -a -- restart
+    sudo softwareupdate -i -a -R
     echo "Updates in progress ..."
   else
     echo "No updates ..."
@@ -90,7 +101,8 @@ function to_utf8(){
 
 # ---------- alias ---------- #
 
-alias vim="nvim -X"
+alias v="BAT_THEME='Nord' /usr/local/bin/nvim -X"
+alias vim="BAT_THEME='Nord' /usr/local/bin/nvim -X"
 alias vimg="color=gruvbox nvim -X"
 alias date="/usr/local/bin/gdate"
 alias :q="exit"
@@ -145,3 +157,6 @@ for file in $(ls -1 ~/.env)
 do
   source ~/.env/$file
 done
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
