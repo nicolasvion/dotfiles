@@ -15,6 +15,7 @@
 .config/nvim/viminfo
 .config/nvim/plugged/*
 .config/nvim/undodir/*
+.config/nvim/session/*
 .config/neomutt/aliases*
 .config/neomutt/private/*
 .config/neomutt/tmp/*

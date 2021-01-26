@@ -8,6 +8,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
 
 " focus
 Plug 'junegunn/goyo.vim'
@@ -25,6 +26,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mcchrish/nnn.vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 "" git
 Plug 'tpope/vim-fugitive'
@@ -102,6 +105,33 @@ else
 endif
 let g:airline_theme='minimalist'
 set nocompatible
+let g:startify_session_dir = '~/.config/nvim/session'
+let g:startify_lists = [
+          \ { 'type': 'files',     'header': ['   Files']                        },
+          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+          \ { 'type': 'sessions',  'header': ['   Sessions']                     },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']                    },
+          \ ]
+
+
+let g:startify_session_autoload = 1
+let g:startify_session_delete_buffers = 1
+let g:startify_change_to_vcs_root = 1
+let g:startify_fortune_use_unicode = 1
+let g:startify_session_persistence = 1
+
+let g:webdevicons_enable_startify = 1
+
+function! StartifyEntryFormat()
+        return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+    endfunction
+
+let g:startify_bookmarks = [
+            \ { 'i': '~/.config/nvim/init.vim' },
+            \ { 'w': '~/work' },
+            \ ]
+
+let g:startify_enable_special = 0
 
 " basic options
 set history=10000
@@ -230,8 +260,11 @@ nmap gg :GGrep<CR>
 " goyo
 nmap go :Goyo 95%x95%<CR>
 
+" ranger
+nnoremap <silent> rr :RangerCurrentFileExistingOrNewTab<CR>
+
 " nnn
-nnoremap <silent>,n :NnnPicker<CR>"
+nnoremap <silent>,n :NnnPicker<CR>
 
 " trim whitespace
 noremap <silent>;t :call TrimWhitespace()<CR>
@@ -420,7 +453,7 @@ autocmd FileType mail set spell
 let g:limelight_conceal_ctermfg = 'blue'
 
 " open NerdTree if no file specified
-au vimenter * if !argc() | NERDTree | endif
+au vimenter * if !argc() | Startify | NERDTree | endif
 let NERDTreeShowBookmarks=1
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:webdevicons_conceal_nerdtree_brackets = 1
