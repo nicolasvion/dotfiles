@@ -13,6 +13,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'szw/vim-maximizer'
+Plug 'kshenoy/vim-signature'
 
 " functionalities
 
@@ -29,6 +30,7 @@ Plug 'mcchrish/nnn.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'sodapopcan/vim-twiggy'
 Plug 'airblade/vim-gitgutter'
+Plug 'lambdalisue/gina.vim'
 
 "" tagbar
 Plug 'majutsushi/tagbar'
@@ -69,6 +71,7 @@ Plug 'tell-k/vim-autopep8'
 "" utilities
 Plug 'azadkuh/vim-cmus'
 Plug 'voldikss/vim-floaterm'
+Plug 'puremourning/vimspector'
 
 call plug#end()
 
@@ -239,6 +242,8 @@ noremap <silent>mk :!make pdf<CR>
 " ycm goto
 nnoremap <silent> yg :YcmCompleter GoTo<CR>
 nnoremap <silent> yr :YcmCompleter GoToReferences<CR>
+let g:vimspector_enable_mappings = 'HUMAN'
+nmap ,vc <Plug>VimspectorContinue
 
 " ripgrep
 noremap <silent>rg :Rg<Space>
@@ -275,7 +280,7 @@ nnoremap pr <C-w>r
 
 " mapping md to markdown renderer via mdr
 " https://github.com/MichaelMure/mdr.git
-noremap md :PreviewMarkdown<CR>
+noremap ,md :PreviewMarkdown<CR>
 let g:preview_markdown_parser="glow"
 let g:preview_markdown_vertical=1
 
@@ -440,7 +445,6 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-
 
 " nnn - disable default mappings
 let g:nnn#set_default_mappings = 0
