@@ -12,6 +12,7 @@
 .config/configstore
 .config/cmus/*
 .config/.gocode
+.config/gcloud
 .config/nvim/viminfo
 .config/nvim/plugged/*
 .config/nvim/undodir/*
