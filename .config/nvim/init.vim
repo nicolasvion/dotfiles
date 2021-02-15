@@ -28,6 +28,7 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'weirongxu/coc-explorer'
 Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -124,6 +125,7 @@ set autoread
 
 " clipboard
 set clipboard=unnamed
+nmap <C-p> :set paste!<CR>
 
 " performance
 " default = 4000 : delays and poor user experience.
@@ -363,14 +365,16 @@ nnoremap gG :GGrep<CR>
 nnoremap fj :%!jq '.'<CR>
 nnoremap fn :%!js-beautify -j -s 2 -f -<CR>
 nnoremap fp :Autopep8<CR>
+" makes ascii art font
+nmap <space>f :.!toilet -w 200 -f term -F border<CR>
 
 " ## floaterm
 nnoremap <silent> ,t :FloatermNew! cd %:p:h;clear<CR>
 nnoremap <silent> ,tg :FloatermNew! cd %:p:h;lazygit;exit<CR>
 nnoremap <silent> ,f :Files<CR>
 nnoremap <silent> ,b :Buffers<CR>
-nnoremap <c-n> :bprev<CR>
-nnoremap <c-p> :bnext<CR>
+nnoremap bn :bprev<CR>
+nnoremap bp :bnext<CR>
 nnoremap <silent> ,m :Marks<CR>
 nnoremap <silent> ,h :History<CR>
 nnoremap <silent> ,c :Commit<CR>
@@ -478,6 +482,7 @@ let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ ]
 let g:loaded_netrw = 1
+imap <C-l> <Plug>(coc-snippets-expand)
 
 function! AuCocNvimInit()
     if @% == '' || @% == '.'

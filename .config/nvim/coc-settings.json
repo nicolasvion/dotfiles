@@ -49,5 +49,8 @@
     "J": "expand:Recursive",
     "K": "collapse:Recursive",
     "<cr>": "open"
-  }
+  },
+  "coc.preferences.snippets.enable": true,
+  "snippets.ultisnips.enable": true,
+  "snippets.ultisnips.directories": ["/Users/nicolas.vion/.config/nvim/snips"]
 }
