@@ -467,6 +467,24 @@ let g:limelight_conceal_ctermfg = 'blue'
 
 " coc
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-python',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-git',
+  \ 'coc-yank',
+  \ 'coc-explorer',
+  \ ]
+let g:loaded_netrw = 1
+
+function! AuCocNvimInit()
+    if @% == '' || @% == '.'
+      exe ':CocCommand explorer'
+    endif
+endfunction
+autocmd User CocNvimInit call AuCocNvimInit()
 
 " fzf
 command! -bang AnsibleFiles call fzf#vim#files('~/work/ansible', {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat --color=always --style=header,grid --line-range :300 {}']}, <bang>0)
