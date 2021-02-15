@@ -257,7 +257,7 @@ nnoremap <leader>l :Limelight!!<CR>
 
 " source vimrc file
 nnoremap <leader>r :source ~/.config/nvim/init.vim<CR>
-nnoremap <leader>R :edit ~/.config/nvim/init.vim<CR>
+nnoremap ;r :edit ~/.config/nvim/init.vim<CR>
 
 " undotree
 noremap <leader>u :UndotreeShow<CR>
