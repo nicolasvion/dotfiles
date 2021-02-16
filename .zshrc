@@ -78,7 +78,7 @@ function create_doc() {
   cp -rf ~/work/documentations/templates/{Makefile,src,images,templates} ~/work/documentations/$sujet/$project/
   cd ~/work/documentations/$sujet/$project/
   gsed -i "s/docs/$sujet-$project/g" Makefile
-  tmux new-window 'nvim'
+  tmux new-window 'documentations'
 }
 
 function c() {
