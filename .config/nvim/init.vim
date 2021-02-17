@@ -71,6 +71,9 @@ Plug 'skanehira/preview-markdown.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
+"" latex
+Plug 'lervag/vimtex'
+
 "" python
 Plug 'heavenshell/vim-pydocstring'
 Plug 'nvie/vim-flake8'
@@ -319,6 +322,7 @@ nnoremap pr <C-w>r
 noremap ,md :PreviewMarkdown<CR>
 let g:preview_markdown_parser="glow"
 let g:preview_markdown_vertical=1
+let g:tex_flavor = 'latex'
 
 " mapping ps,pz,pd,ps to switch beetween pane
 noremap ps  <c-w>j
