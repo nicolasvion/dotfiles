@@ -82,6 +82,7 @@ Plug 'tell-k/vim-autopep8'
 "" utilities
 Plug 'azadkuh/vim-cmus'
 Plug 'voldikss/vim-floaterm'
+Plug 'preservim/vimux'
 Plug 'liuchengxu/vim-which-key'
 
 call plug#end()
@@ -374,6 +375,8 @@ nmap <space>f :.!toilet -w 200 -f term -F border<CR>
 
 " ## floaterm
 nnoremap <silent> ,t :FloatermNew! cd %:p:h;clear<CR>
+nnoremap <silent> ,p :VimuxOpenRunner<CR>
+nnoremap <silent> ;p :VimuxRunLastCommand<CR>
 nnoremap <silent> ,tg :FloatermNew! cd %:p:h;lazygit;exit<CR>
 nnoremap <silent> ,f :Files<CR>
 nnoremap <silent> ,b :Buffers<CR>
