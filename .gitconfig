@@ -22,6 +22,7 @@
   excludesfile = ~/.gitignore
   editor = nvim
   pager = diff-so-fancy | less --tabs=2 -rFX
+	autocrlf = input
 
 [pull]
   rebase = true
