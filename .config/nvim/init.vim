@@ -47,6 +47,8 @@ Plug 'junegunn/gv.vim'
 "" tagbar
 Plug 'majutsushi/tagbar'
 
+Plug 'rottencandy/vimkubectrottencandy/vimkubectl'
+
 "" syntax
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
