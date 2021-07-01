@@ -47,7 +47,7 @@ function tmux-work {
   tmux new-window -t work:2 -n gitlab 'cd ~/work/gitlab && nvim'
   tmux new-window -t work:3 -n devops 'cd ~/work/azure_devops && nvim'
   tmux new-window -t work:4 -n dev 'cd ~/work/dev && nvim'
-  tmux new-window -t work:5 -n bastion 'cd ~/work/ && ssh -L 8443:localhost:8443 -D 1234 bastion'
+  tmux new-window -t work:5 -n bastion 'ssh -Nf -L 8443:localhost:8443 -D 1234 bastion && cd ~/work/'
 
   tmux select-window -t work:2
   tmux -2 attach-session -t work:2
@@ -113,7 +113,7 @@ alias brew-generate-brewfile="brew bundle dump"
 alias brew-check-brewfile="brew bundle check"
 
 alias ossh="ssh -t bastion ssh '$@'"
-alias ossh-proxy="ssh -L 8443:localhost:8443 -D 1234 bastion"
+alias ossh-proxy="ssh -fN -L 8443:localhost:8443 -D 1234 bastion"
 
 alias ovault="vault"
 alias ovault-login="vault login -method=ldap username='nvion'"
