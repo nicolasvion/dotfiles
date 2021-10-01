@@ -101,6 +101,7 @@ function to_utf8(){
 
 # ---------- alias ---------- #
 
+alias exa="exa -abgHlS --icons --git --time-style long-iso"
 alias v="BAT_THEME='Nord' /usr/local/bin/nvim -X"
 alias vim="BAT_THEME='Nord' /usr/local/bin/nvim -X"
 alias vimg="color=gruvbox nvim -X"
@@ -118,7 +119,7 @@ alias ossh-proxy="ssh -fN -L 8443:localhost:8443 -D 1234 bastion"
 alias ovault="vault"
 alias ovault-login="vault login -method=ldap username='nvion'"
 
-alias kubectl='/usr/local/Cellar/kubernetes-cli/1.22.1/bin/kubectl'
+alias kubectl='/usr/local/Cellar/kubernetes-cli/1.22.2/bin/kubectl'
 
 # ---------- plugins ---------- #
 
