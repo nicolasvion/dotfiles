@@ -22,6 +22,8 @@ export GPG_TTY=$(tty)
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/Users/nicolas.vion/Library/Python/3.9/bin:/Users/nicolas.vion/.bin
 export HISTFILE=~/.zsh/histfile
 export LESSHISTSIZE=0
+# ansible on mac
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 eval "$(gdircolors ~/.dir_colors)"
 
 # ---------- mappings ---------- #
