@@ -47,9 +47,8 @@ function tmux-work {
   tmux split-window -p 1 -v 'cmus'
   tmux new-window -t work:1 -n github 'cd ~/work/github && nvim'
   tmux new-window -t work:2 -n gitlab 'cd ~/work/gitlab && nvim'
-  tmux new-window -t work:3 -n devops 'cd ~/work/azure_devops && nvim'
-  tmux new-window -t work:4 -n dev 'cd ~/work/dev && nvim'
-  tmux new-window -t work:5 -n bastion 'ssh -Nf -L 8443:localhost:8443 -D 1234 bastion && cd ~/work/'
+  tmux new-window -t work:3 -n dev 'cd ~/work/dev && nvim'
+  tmux new-window -t work:4 -n bastion 'ssh -Nf -L 8443:localhost:8443 -D 1234 bastion && cd ~/work/'
 
   tmux select-window -t work:2
   tmux -2 attach-session -t work:2
