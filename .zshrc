@@ -125,7 +125,7 @@ alias kubectl='/usr/local/Cellar/kubernetes-cli/1.22.2/bin/kubectl'
 # ---------- plugins ---------- #
 
 plugins=(
-  osx
+  macos
   iterm2
   percol
   gpg-agent
