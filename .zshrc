@@ -120,7 +120,7 @@ alias ossh-proxy="ssh -fN -L 8443:localhost:8443 -D 1234 bastion"
 alias ovault="vault"
 alias ovault-login="vault login -method=ldap username='nvion'"
 
-alias kubectl='/usr/local/Cellar/kubernetes-cli/1.22.4/bin/kubectl'
+alias kubectl='/usr/local/Cellar/kubernetes-cli/1.23.1/bin/kubectl'
 
 # ---------- plugins ---------- #
 
