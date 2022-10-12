@@ -121,6 +121,7 @@ alias ovault="vault"
 alias ovault-login="vault login -method=ldap username='nvion'"
 
 alias kubectl='/usr/local/Cellar/kubernetes-cli/1.23.3/bin/kubectl'
+alias tg="/usr/local/bin/topgun"
 
 # ---------- plugins ---------- #
 

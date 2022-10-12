@@ -24,6 +24,7 @@
 .config/vifm/vifminfo
 .config/nvim/.netrwhist
 .config/iterm2
+.config/topgun.yml
 .docker
 .DS_STORE
 .idea
