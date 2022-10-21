@@ -10,7 +10,7 @@
       "expand": true
     }
   ],
-  "explorer.file.autoReveal": true,
+  "explorer.file.reveal.auto": true,
   "explorer.icon.enableVimDevicons": true,
   "explorer.openAction.relativePath": false,
   "explorer.icon.enableNerdfont": true,
@@ -52,5 +52,8 @@
   },
   "coc.preferences.snippets.enable": true,
   "snippets.ultisnips.enable": true,
-  "snippets.ultisnips.directories": ["/Users/nicolas.vion/.config/nvim/snips"]
+  "snippets.ultisnips.directories": [
+    "/Users/nicolas.vion/.config/nvim/snips"
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

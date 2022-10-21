@@ -44,10 +44,11 @@ Plug 'lambdalisue/gina.vim'
 Plug 'jreybert/vimagit'
 Plug 'junegunn/gv.vim'
 
+"" gitlab
+Plug 'shumphrey/fugitive-gitlab.vim'
+
 "" tagbar
 Plug 'majutsushi/tagbar'
-
-Plug 'rottencandy/vimkubectrottencandy/vimkubectl'
 
 "" syntax
 Plug 'jiangmiao/auto-pairs'
@@ -57,7 +58,7 @@ Plug 'Yggdroot/indentLine'
 " coding
 Plug 'romainl/vim-qf'
 Plug 'tpope/vim-commentary'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 Plug 'sbdchd/neoformat'
 
 Plug 'mbbill/undotree'
@@ -426,6 +427,16 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
+" yaml
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */hostvars/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */group_vars/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */tasks/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */defaults/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */vars/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */meta/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */handlers/*.yml set filetype=yaml.ansible
+
 " use XHTML and CSS with :TOhtml
 let use_xhtml=1
 let html_use_css=1
@@ -461,6 +472,9 @@ let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_only_msg_on_error = 1
+
+" gitlab
+let g:fugitive_gitlab_domains = ['https://git.fr.clara.net']
 
 " ruby
 let ruby_operators=1
@@ -500,7 +514,6 @@ let g:coc_global_extensions = [
   \ 'coc-yank',
   \ 'coc-explorer',
   \ ]
-let g:loaded_netrw = 1
 imap <C-l> <Plug>(coc-snippets-expand)
 
 function! AuCocNvimInit()
