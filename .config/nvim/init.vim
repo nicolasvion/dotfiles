@@ -58,8 +58,9 @@ Plug 'Yggdroot/indentLine'
 " coding
 Plug 'romainl/vim-qf'
 Plug 'tpope/vim-commentary'
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 Plug 'sbdchd/neoformat'
+Plug 'ycm-core/YouCompleteMe'
 
 Plug 'mbbill/undotree'
 
