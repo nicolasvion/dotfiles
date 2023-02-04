@@ -60,7 +60,6 @@ Plug 'romainl/vim-qf'
 Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 Plug 'sbdchd/neoformat'
-Plug 'ycm-core/YouCompleteMe'
 
 Plug 'mbbill/undotree'
 
@@ -96,7 +95,7 @@ call plug#end()
 
 " ---------- nvim basic configuration ---------- #
 
-let g:python_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python3'
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0

@@ -55,5 +55,6 @@
   "snippets.ultisnips.directories": [
     "/Users/nicolas.vion/.config/nvim/snips"
   ],
-  "coc.preferences.extensionUpdateCheck": "daily"
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "snippets.ultisnips.pythonPrompt": false
 }
