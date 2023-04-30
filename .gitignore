@@ -50,4 +50,4 @@
 .ssh/environment-MacBook*
 .tmux/plugins/*
 .zsh/histfile
-project/collections/*
+# project/collections/*
