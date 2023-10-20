@@ -19,7 +19,7 @@ export ZSH=$HOME/.oh-my-zsh
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/.go
 export GPG_TTY=$(tty)
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/Users/nicolas.vion/Library/Python/3.9/bin:/Users/nicolas.vion/.bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/Users/nicolas.vion/Library/Python/3.11/bin:/Users/nicolas.vion/.bin
 export HISTFILE=~/.zsh/histfile
 export LESSHISTSIZE=0
 # ansible on mac

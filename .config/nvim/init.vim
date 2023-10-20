@@ -298,6 +298,9 @@ nnoremap <silent> go :Goyo 95%x95%<CR>
 " trim whitespace
 nnoremap ;t :call TrimWhitespace()<CR>
 
+nnoremap ;ap <Plug>(ale_previous_wrap)
+nnoremap ;an <Plug>(ale_next_wrap)
+
 " toggle mouse mode
 nnoremap ;m <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
 
@@ -423,9 +426,6 @@ let g:twiggy_local_branch_sort = 'mru'
 let g:twiggy_remote_branch_sort = 'date'
 
 " linters and formating
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 " yaml
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
@@ -465,13 +465,19 @@ let g:neoformat_python_autopep8 = {
             \ 'no_append': 1,
             \ }
 
-" :Neoformat! python
+" :Neoformat! + ale python
 let g:neoformat_enabled_python = ['autopep8']
 let g:neoformat_try_formatprg = 1
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_only_msg_on_error = 1
+let g:ale_completion_enabled = 1
+let b:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
+let g:ale_python_black_options='--line-length=79'
+let b:ale_fixers = {'python': ['autoflake',  'autopep8', 'black', 'isort'], 'javascript': ['prettier', 'eslint']}
+let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 1
 
 " gitlab
 let g:fugitive_gitlab_domains = ['https://git.fr.clara.net']

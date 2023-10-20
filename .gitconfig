@@ -50,4 +50,3 @@
   path = nvim
 [mergetool "vimdiff3"]
   path = nvim
-[global]
