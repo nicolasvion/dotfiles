@@ -60,7 +60,7 @@ Plug 'romainl/vim-qf'
 Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 Plug 'sbdchd/neoformat'
-
+Plug 'editorconfig/editorconfig-vim'
 Plug 'mbbill/undotree'
 
 "" infra
@@ -213,7 +213,10 @@ set showcmd
 set laststatus=2
 
 set fo=cqt
-set fdm=marker
+" set fdm=marker
+" set fdm=indent
+autocmd BufWinLeave *.* mkview!
+autocmd BufWinEnter *.* silent loadview
 set ruler
 
 " automatically change window's cwd to file's dir
@@ -268,7 +271,7 @@ nnoremap <leader>e <C-v>
 nnoremap <silent> <leader>l :nohl<CR><C-l>
 
 " plugins shortcuts
-nnoremap <leader>n :CocCommand explorer<cr>
+nnoremap <silent> co :CocCommand explorer<cr>
 nnoremap <leader>c :TagbarToggle<CR>
 
 " limelight
@@ -394,6 +397,7 @@ nnoremap <silent> ,t :FloatermNew! cd %:p:h;clear<CR>
 nnoremap <silent> ,p :VimuxOpenRunner<CR>
 nnoremap <silent> ;p :VimuxRunLastCommand<CR>
 nnoremap <silent> ,tg :FloatermNew! cd %:p:h;lazygit;exit<CR>
+nnoremap <silent> ,td :FloatermNew! lazydocker;exit<CR>
 nnoremap <silent> ,f :Files<CR>
 nnoremap <silent> ,b :Buffers<CR>
 nnoremap bn :bprev<CR>
@@ -475,7 +479,7 @@ let g:neoformat_only_msg_on_error = 1
 let g:ale_completion_enabled = 1
 let b:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
 let g:ale_python_black_options='--line-length=79'
-let b:ale_fixers = {'python': ['autoflake',  'autopep8', 'black', 'isort'], 'javascript': ['prettier', 'eslint']}
+let b:ale_fixers = {'python': ['autoflake',  'autopep8', 'black'], 'javascript': ['prettier', 'eslint'],}
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 
