@@ -63,6 +63,11 @@ Plug 'sbdchd/neoformat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mbbill/undotree'
 
+" fold
+Plug 'tmhedberg/SimpylFold'
+Plug 'pedrohdz/vim-yaml-folds'
+Plug 'Konfekt/FastFold'
+
 "" infra
 Plug 'pearofducks/ansible-vim'
 Plug 'hashivim/vim-terraform'
@@ -213,10 +218,16 @@ set showcmd
 set laststatus=2
 
 set fo=cqt
+" fold part
+function UpdateFolds()
+    call SimpylFold#Recache()
+    FastFoldUpdate!   " replace with `normal! zx` if you don't have FastFold
+endfunction
+autocmd BufWritePre *.py call UpdateFolds()
 " set fdm=marker
 " set fdm=indent
-autocmd BufWinLeave *.* mkview!
-autocmd BufWinEnter *.* silent loadview
+" autocmd BufWinLeave *.* mkview!
+" autocmd BufWinEnter *.* silent! loadview
 set ruler
 
 " automatically change window's cwd to file's dir
