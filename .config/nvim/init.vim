@@ -213,7 +213,7 @@ augroup END
 syntax enable
 set relativenumber
 set numberwidth=5
-set colorcolumn=80
+set colorcolumn=120
 set showcmd
 set laststatus=2
 
@@ -399,7 +399,9 @@ nnoremap gG :GGrep<CR>
 " ## formating ##
 nnoremap fj :%!jq '.'<CR>
 nnoremap fn :%!js-beautify -j -s 2 -f -<CR>
-nnoremap fp :Autopep8<CR>
+if has("autocmd")
+    autocmd BufWritePost *.py :silent !yapf -i --style ~/.config/yapf/style "%"
+endif
 " makes ascii art font
 nmap <space>f :.!toilet -w 200 -f term -F border<CR>
 
@@ -489,8 +491,13 @@ let g:neoformat_basic_format_trim = 1
 let g:neoformat_only_msg_on_error = 1
 let g:ale_completion_enabled = 1
 let b:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
-let g:ale_python_black_options='--line-length=79'
-let b:ale_fixers = {'python': ['autoflake',  'autopep8', 'black'], 'javascript': ['prettier', 'eslint'],}
+let g:ale_python_black_options='--line-length=120'
+let g:ale_python_yapf_options='-i --style=~/.config/yapf/style'
+let b:ale_fixers = {'python': ['autoflake',  'autopep8', 'yapf'], 'javascript': ['prettier', 'eslint'],}
+" show code errors and warnings
+let g:ale_virtualtext_cursor = 1
+" but ignore warning about line length
+let g:ale_python_flake8_options = '--ignore=E501'
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 
@@ -543,7 +550,8 @@ function! AuCocNvimInit()
     endif
 endfunction
 autocmd User CocNvimInit call AuCocNvimInit()
-
+autocmd User CocDiagnosticChange,CocGitStatusChange
+    \ call CocActionAsync('runCommand', 'explorer.doAction', 'closest', ['refresh'])
 " fzf
 command! -bang AnsibleFiles call fzf#vim#files('~/work/ansible', {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat --color=always --style=header,grid --line-range :300 {}']}, <bang>0)
 command! -bang DockerFiles call fzf#vim#files('~/work/technique/docker', {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat --color=always --style=header,grid --line-range :300 {}']}, <bang>0)
