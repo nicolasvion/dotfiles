@@ -19,7 +19,7 @@ export ZSH=$HOME/.oh-my-zsh
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/.go
 export GPG_TTY=$(tty)
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/Users/nicolas.vion/Library/Python/3.11/bin:/Users/nicolas.vion/.bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/Users/nicolas.vion/Library/Python/3.13/bin:/Users/nicolas.vion/.bin
 export HISTFILE=~/.zsh/histfile
 export LESSHISTSIZE=0
 # ansible on mac
@@ -100,9 +100,20 @@ function to_utf8(){
   fi
 }
 
+function t() {
+  find -E "${1:-.}" -maxdepth "${2:-3}" \
+    -not -regex ".*\/((.idea|.git|.venv|node_modules|venv)\/.*|.DS_Store)" \
+  | sort | sed \
+    -e "s/[^-][^\/]*\// ├ /g" \
+    -e "s/├ \//├ /g" \
+    -e "s/├  ├/│  ├/g" \
+    -e "s/├  ├/│  ├/g" \
+    -e "s/├  │/│  │/g" \
+    -e '$s/├/└/'
+}
+
 # ---------- alias ---------- #
 
-alias exa="exa -abgHlS --icons --git --time-style long-iso"
 alias v="BAT_THEME='Nord' /usr/local/bin/nvim -X"
 alias vim="BAT_THEME='Nord' /usr/local/bin/nvim -X"
 alias vimg="color=gruvbox nvim -X"
@@ -120,7 +131,7 @@ alias ossh-proxy="ssh -fN -L 8443:localhost:8443 -D 1234 bastion"
 alias ovault="vault"
 alias ovault-login="vault login -method=ldap username='nvion'"
 
-alias kubectl='/usr/local/Cellar/kubernetes-cli/1.23.3/bin/kubectl'
+alias kubectl='/usr/local/Cellar/kubernetes-cli/1.34.0/bin/kubectl'
 alias tg="/usr/local/bin/topgun"
 
 # ---------- plugins ---------- #
@@ -135,6 +146,7 @@ plugins=(
   aws
   docker
   docker-compose
+  python
 )
 
 

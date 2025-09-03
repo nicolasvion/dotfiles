@@ -164,6 +164,7 @@ set fileformats=unix,dos,mac
 
 " default formating
 set shiftwidth=2
+set tw=0
 set expandtab
 set smarttab
 
@@ -471,7 +472,7 @@ let python_highlight_exceptions=1
 let python_highlight_numbers=1
 let python_highlight_space_errors=1
 autocmd VimEnter *.py nested :TagbarOpen
-au BufRead,BufNewFile *.py setlocal textwidth=80
+au BufRead,BufNewFile *.py setlocal textwidth=130
 let g:neoformat_python_autopep8 = {
             \ 'exe': 'autopep8',
             \ 'args': ['-s 4', '-E'],
