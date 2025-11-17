@@ -49,5 +49,6 @@
 .ssh/test
 .ssh/environment-MacBook*
 .tmux/plugins/*
+.vscode/*
 .zsh/histfile
 # project/collections/*

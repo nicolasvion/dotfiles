@@ -19,12 +19,13 @@ export ZSH=$HOME/.oh-my-zsh
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/.go
 export GPG_TTY=$(tty)
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/Users/nicolas.vion/Library/Python/3.13/bin:/Users/nicolas.vion/.bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/Users/nicolas.vion/Library/Python/3.13/bin:/Users/nicolas.vion/.bin:/Users/nicolas.vion/.local/bin
+export K9S_SKIN="nord"
 export HISTFILE=~/.zsh/histfile
 export LESSHISTSIZE=0
 # ansible on mac
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-eval "$(gdircolors ~/.dir_colors)"
+# eval "$(gdircolors ~/.dir_colors)"
 
 # ---------- mappings ---------- #
 
@@ -43,15 +44,14 @@ bindkey "^[e" end-of-line
 function exists { which $1 &> /dev/null }
 
 function tmux-work {
-  tmux new-session -d -s work 'cd ~/ ; taskell'
-  tmux split-window -p 1 -v 'cmus'
-  tmux new-window -t work:1 -n github 'cd ~/work/github && nvim'
-  tmux new-window -t work:2 -n gitlab 'cd ~/work/gitlab && nvim'
-  tmux new-window -t work:3 -n dev 'cd ~/work/dev && nvim'
-  tmux new-window -t work:4 -n bastion 'ssh -Nf -L 8443:localhost:8443 -D 1234 bastion && cd ~/work/'
+  tmux new-session -d -s work -n ssh "cd ~/ && zsh"
+
+  tmux new-window -t work:1 -n github "cd ~/work/github && nvim"
+  tmux new-window -t work:2 -n gitlab "cd ~/work/dev && nvim"
+  tmux new-window -t work:3 -n dev "cd ~/ && zsh"
 
   tmux select-window -t work:2
-  tmux -2 attach-session -t work:2
+  tmux attach-session -t work
 }
 
 function update_os() {
@@ -131,8 +131,10 @@ alias ossh-proxy="ssh -fN -L 8443:localhost:8443 -D 1234 bastion"
 alias ovault="vault"
 alias ovault-login="vault login -method=ldap username='nvion'"
 
-alias kubectl='/usr/local/Cellar/kubernetes-cli/1.34.0/bin/kubectl'
+alias kubectl='/usr/local/share/google-cloud-sdk/bin/kubectl'
 alias tg="/usr/local/bin/topgun"
+
+alias awsec2instances=~/.bin/awsec2instances
 
 # ---------- plugins ---------- #
 

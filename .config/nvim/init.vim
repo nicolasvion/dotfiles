@@ -407,10 +407,10 @@ endif
 nmap <space>f :.!toilet -w 200 -f term -F border<CR>
 
 " ## floaterm
-nnoremap <silent> ,t :FloatermNew! cd %:p:h;clear<CR>
+nnoremap <silent> ,t :FloatermNew! cd "%:p:h" ; clear<CR>
 nnoremap <silent> ,p :VimuxOpenRunner<CR>
 nnoremap <silent> ;p :VimuxRunLastCommand<CR>
-nnoremap <silent> ,tg :FloatermNew! cd %:p:h;lazygit;exit<CR>
+nnoremap <silent> ,tg :FloatermNew! cd "%:p:h";lazygit;exit<CR>
 nnoremap <silent> ,td :FloatermNew! lazydocker;exit<CR>
 nnoremap <silent> ,f :Files<CR>
 nnoremap <silent> ,b :Buffers<CR>
@@ -491,7 +491,8 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_only_msg_on_error = 1
 let g:ale_completion_enabled = 1
-let b:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
+let b:ale_linters = {'python': ['mypy', 'flake8', 'pylint'], 'yaml': ['yamllint']}
+let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
 let g:ale_python_black_options='--line-length=120'
 let g:ale_python_yapf_options='-i --style=~/.config/yapf/style'
 let b:ale_fixers = {'python': ['autoflake',  'autopep8', 'yapf'], 'javascript': ['prettier', 'eslint'],}
