@@ -50,5 +50,6 @@
 .ssh/environment-MacBook*
 .tmux/plugins/*
 .vscode/*
+!.vscode/settings.json
 .zsh/histfile
 # project/collections/*
