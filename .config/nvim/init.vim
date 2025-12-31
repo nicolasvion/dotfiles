@@ -4,6 +4,7 @@ call plug#begin()
 
 " theme
 Plug 'arcticicestudio/nord-vim'
+Plug 'datsfilipe/vesper.nvim'
 Plug 'sainnhe/gruvbox-material'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -118,9 +119,12 @@ set t_Co=16
 if $color == 'gruvbox'
   colorscheme gruvbox
 else
-  color nord
+  color vesper
   set background=dark
+  set fillchars+=eob:.
+  highlight EndOfBuffer ctermfg=0 guifg=#000000
 endif
+
 let g:airline_theme='minimalist'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1

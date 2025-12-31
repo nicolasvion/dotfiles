@@ -51,5 +51,6 @@
 .tmux/plugins/*
 .vscode/*
 !.vscode/settings.json
+!.vscode/extensions.json
 .zsh/histfile
 # project/collections/*

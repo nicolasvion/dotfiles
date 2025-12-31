@@ -1,6 +1,6 @@
 {
     // Apparence
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Vesper",
     "editor.fontFamily": "'SauceCodePro Nerd Font', 'SauceCodePro Nerd Font Mono', monospace",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.minimap.enabled": true,
@@ -11,9 +11,10 @@
     // Formatage & Linting
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
     // IntelliSense & Complétion
     // "python.languageServer": "Pylance",
-    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.typeCheckingMode": "standard",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.diagnosticMode": "workspace",
     // Tabulation & Espaces
@@ -21,6 +22,7 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
     "files.trimTrailingWhitespace": true,
+    "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
     // Testing
     "python.testing.pytestEnabled": true,
@@ -36,5 +38,24 @@
     ],
     "roo-cline.deniedCommands": [],
     "workbench.startupEditor": "none",
-    "problems.decorations.enabled": false
+    "problems.decorations.enabled": false,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+    "markdown-preview-enhanced.enableHTML5Embed": true,
+    "git.confirmSync": false,
+    "git.enableCommitSigning": true,
+    "puppet.editorService.loglevel": "debug",
+    "puppet.editorService.debugFilePath": "/Users/nicolas.vion/.puppet.log",
+    "puppet.editorService.foldingRange.showLastLine": true,
+    "puppet.notification.nodeGraph": "statusbar",
+    "puppet.notification.puppetResource": "statusbar",
+    "git.enableSmartCommit": true,
+    "projectManager.git.baseFolders": [
+        ".git"
+    ],
+    "workbench.activityBar.location": "bottom",
+    "workbench.sideBar.location": "right",
+    "workbench.iconTheme": "symbols",
+    "window.newWindowDimensions": "fullscreen",
+    "window.restoreFullscreen": true
 }
