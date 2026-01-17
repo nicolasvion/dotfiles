@@ -4,6 +4,7 @@
 *.json.swp
 *.yml.swp
 *.pyc
+.ansible
 .aws
 .azure
 .berkshelf

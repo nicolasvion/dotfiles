@@ -27,6 +27,8 @@
     // Testing
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
+    "python.venvPath": "/Users/nicolas.vion/Library/Caches/pypoetry/virtualenvs/",
+
     // Git & Terminal
     "git.autofetch": true,
     "terminal.integrated.fontFamily": "'SauceCodePro Nerd Font', 'SauceCodePro Nerd Font Mono', monospace",
@@ -40,7 +42,6 @@
     "workbench.startupEditor": "none",
     "problems.decorations.enabled": false,
     "python.analysis.inlayHints.functionReturnTypes": true,
-    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
     "markdown-preview-enhanced.enableHTML5Embed": true,
     "git.confirmSync": false,
     "git.enableCommitSigning": true,
@@ -57,5 +58,7 @@
     "workbench.sideBar.location": "right",
     "workbench.iconTheme": "symbols",
     "window.newWindowDimensions": "fullscreen",
-    "window.restoreFullscreen": true
+    "window.restoreFullscreen": true,
+    "git.openRepositoryInParentFolders": "never",
+    "clock.alignment": "Right"
 }
