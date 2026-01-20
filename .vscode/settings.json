@@ -1,6 +1,6 @@
 {
     // Apparence
-    "workbench.colorTheme": "Vesper",
+    "workbench.colorTheme": "Nord",
     "editor.fontFamily": "'SauceCodePro Nerd Font', 'SauceCodePro Nerd Font Mono', monospace",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.minimap.enabled": true,

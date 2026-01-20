@@ -119,7 +119,7 @@ set t_Co=16
 if $color == 'gruvbox'
   colorscheme gruvbox
 else
-  color vesper
+  color nord
   set background=dark
   set fillchars+=eob:.
   highlight EndOfBuffer ctermfg=0 guifg=#000000
