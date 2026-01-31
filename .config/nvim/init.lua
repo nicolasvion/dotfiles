@@ -1,4 +1,4 @@
--- ============================================================================
+
 -- Neovim Configuration in Lua
 -- ============================================================================
 
@@ -24,6 +24,9 @@ Plug('kshenoy/vim-signature')
 -- File explorer
 Plug('nvim-tree/nvim-tree.lua')
 Plug('nvim-tree/nvim-web-devicons')
+
+-- Flash navigation
+Plug("folke/flash.nvim")
 
 -- Fuzzy finder
 Plug('junegunn/fzf', { ['do'] = vim.fn['fzf#install'] })
@@ -75,6 +78,7 @@ Plug('dense-analysis/ale')
 Plug('sbdchd/neoformat')
 Plug('editorconfig/editorconfig-vim')
 Plug('mbbill/undotree')
+Plug('majutsushi/tagbar')
 
 -- Fold
 Plug('tmhedberg/SimpylFold')
@@ -694,6 +698,42 @@ if nvimtree_ok then
       end
     end
   })
+end
+
+-- Flash navigation
+local flash_ok, flash = pcall(require, "flash")
+if flash_ok then
+  flash.setup({
+    modes = {
+      char = {
+        enabled = true,
+        jump_labels = true, -- Add labels to f, F, t, T motions
+      },
+      search = {
+        enabled = true,
+      },
+    },
+  })
+
+  vim.keymap.set({ "n", "x", "o" }, "s", function()
+    flash.jump()
+  end, { desc = "Flash" })
+
+  vim.keymap.set({ "n", "x", "o" }, "S", function()
+    flash.treesitter()
+  end, { desc = "Flash Treesitter" })
+
+  vim.keymap.set("o", "r", function()
+    flash.remote()
+  end, { desc = "Remote Flash" })
+
+  vim.keymap.set({ "o", "x" }, "R", function()
+    flash.treesitter_search()
+  end, { desc = "Treesitter Search" })
+
+  vim.keymap.set("c", "<C-f>", function()
+    flash.toggle()
+  end, { desc = "Toggle Flash Search" })
 end
 
 -- Transparent background
