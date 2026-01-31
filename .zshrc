@@ -95,6 +95,11 @@ alias kubectl='/usr/local/share/google-cloud-sdk/bin/kubectl'
 alias awsec2instances=~/.bin/awsec2instances
 alias ls="eza --icons=always --long --no-filesize --no-time --no-user --no-permissions"
 
+for file in $(/bin/ls -1 ~/.env)
+do
+  source ~/.env/$file
+done
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
