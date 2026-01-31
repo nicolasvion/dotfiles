@@ -80,6 +80,9 @@ Plug('editorconfig/editorconfig-vim')
 Plug('mbbill/undotree')
 Plug('majutsushi/tagbar')
 
+-- AI
+Plug 'folke/sidekick.nvim'
+
 -- Fold
 Plug('tmhedberg/SimpylFold')
 Plug('pedrohdz/vim-yaml-folds')
@@ -978,6 +981,37 @@ if neogit_ok then
   vim.keymap.set('n', '<leader>gP', ':Neogit push<CR>', { desc = 'Push avec Neogit', silent = true })
   vim.keymap.set('n', '<leader>gL', ':Neogit log<CR>', { desc = 'Log avec Neogit', silent = true })
 end
+
+-- Configuration Sidekick
+
+local hostname = vim.fn.hostname()
+local tool = (hostname == "MacBook-Air-de-rin.local") and "gemini" or "claude"
+
+-- ==========================
+-- SIDEKICK SETUP
+-- ==========================
+require("sidekick").setup({
+    nes = { enabled = false },  -- disable default suggestions
+    cli = {
+        watch = false,
+        win = { layout = "right" },
+        tools = {
+            gemini = { cmd = { "gemini" } },
+            claude  = { cmd = { "claude" } },
+        },
+        -- default_tool ne sert plus à rien avec le workaround "name="
+    },
+})
+
+-- ==========================
+-- KEYMAPS SIDEKICK avec workaround
+-- ==========================
+local opts = { noremap = true, silent = true }
+
+-- toggle CLI directement sur le tool choisi
+vim.keymap.set("n", "<leader>ai", ":Sidekick cli toggle name=" .. tool .. "<CR>", opts)
+-- Send visual selection to AI
+vim.keymap.set("v", "<leader>ai", ":'<,'>Sidekick cli prompt name=" .. tool .. "<CR>", opts)
 
 -- ============================================================================
 -- End of Configuration
