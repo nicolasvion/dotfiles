@@ -53,6 +53,8 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+# ctrl + X, gc to insert text
+bindkey -s '^Xgc' 'git commit -am ""\C-b'
 
 # History
 HISTSIZE=5000
