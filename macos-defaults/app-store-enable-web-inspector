@@ -1,0 +1,1 @@
+defaults write com.apple.AppStore WebKitDeveloperExtras -bool true
