@@ -6,7 +6,7 @@ return {
   -- ============================================================================
   -- Git Core - Fugitive
   -- ============================================================================
-  { 
+  {
     'tpope/vim-fugitive',
     cmd = { 'Git', 'G', 'Gstatus', 'Gcommit' },
   },
@@ -23,10 +23,16 @@ return {
   },
 
   -- ============================================================================
-  -- Git Gutter (signs in gutter)
+  -- Git Integration
   -- ============================================================================
-  { 
+  {
     'airblade/vim-gitgutter',
+    event = { 'BufReadPost', 'BufNewFile' },
+    config = function()
+      vim.g.gitgutter_sign_added = '+'
+      vim.g.gitgutter_sign_modified = '~'
+      vim.g.gitgutter_sign_removed = '-'
+    end,
   },
 
   -- ============================================================================
@@ -40,7 +46,7 @@ return {
       if not ok then
         return
       end
-      
+
       gitsigns.setup({
         signs = {
           add          = { text = '│' },
@@ -53,15 +59,15 @@ return {
         current_line_blame = false,
         on_attach = function(bufnr)
           local gs = package.loaded.gitsigns
-          
+
           local function map(mode, l, r, desc)
             vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
           end
-          
+
           -- Navigation
           map('n', ']h', gs.next_hunk, 'Next Hunk')
           map('n', '[h', gs.prev_hunk, 'Previous Hunk')
-          
+
           -- Actions
           map('n', '<leader>hs', gs.stage_hunk, 'Stage Hunk')
           map('n', '<leader>hr', gs.reset_hunk, 'Reset Hunk')
@@ -84,7 +90,7 @@ return {
       if not ok then
         return
       end
-      
+
       git_conflict.setup({
         default_mappings = true,
         default_commands = true,
@@ -94,7 +100,7 @@ return {
           current = 'DiffText',
         }
       })
-      
+
       local opts = { noremap = true, silent = true }
       vim.keymap.set('n', '<leader>co', '<Plug>(git-conflict-ours)', vim.tbl_extend('force', opts, { desc = 'Garder notre version' }))
       vim.keymap.set('n', '<leader>ct', '<Plug>(git-conflict-theirs)', vim.tbl_extend('force', opts, { desc = 'Garder leur version' }))
@@ -105,19 +111,19 @@ return {
     end,
   },
 
-  { 
+  {
     'whiteinge/diffconflicts',
   },
 
   -- ============================================================================
   -- Git Interfaces
   -- ============================================================================
-  { 
+  {
     'lambdalisue/gina.vim',
     cmd = 'Gina',
   },
 
-  { 
+  {
     'jreybert/vimagit',
     cmd = 'Magit',
   },
@@ -125,7 +131,7 @@ return {
   -- ============================================================================
   -- Git Log & History
   -- ============================================================================
-  { 
+  {
     'junegunn/gv.vim',
     cmd = 'GV',
   },
@@ -135,7 +141,7 @@ return {
   -- ============================================================================
   {
     'NeogitOrg/neogit',
-    dependencies = { 
+    dependencies = {
       'nvim-lua/plenary.nvim',
       'sindrets/diffview.nvim',
       'nvim-telescope/telescope.nvim',
@@ -152,7 +158,7 @@ return {
       if not ok then
         return
       end
-      
+
       neogit.setup({
         commit_editor = {
           kind = "vsplit",
@@ -177,7 +183,7 @@ return {
   -- ============================================================================
   -- Diffview
   -- ============================================================================
-  { 
+  {
     'sindrets/diffview.nvim',
     cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
   },
