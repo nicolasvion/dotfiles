@@ -1,0 +1,8 @@
+# sidebar settings
+
+## themes
+set sidebar_visible = yes
+set sidebar_width   = 28
+set sidebar_short_path = yes
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
+color sidebar_new default cyan

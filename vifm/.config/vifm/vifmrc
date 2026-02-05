@@ -1,0 +1,114 @@
+"""""
+" Settings
+"""""
+
+colorscheme Default 
+
+" Only show one pane
+" only 
+
+" Show available command on statusline
+set wildmenu
+set statusline="  %t%= %A %10u:%-7g %15s %20d  "
+
+" Ignore case in search patterns unless it contains at least one uppercase letter
+set ignorecase
+set smartcase
+
+" View disposition
+" default set of view columns
+set viewcolumns=*{name}..,6{}.
+
+" brief information about files
+nnoremap B :set viewcolumns=*{name}..,6{}.<cr>
+
+" detailed information about files
+nnoremap D :set viewcolumns=*{name}.,10{perms},12{uname},-7{gname},10{size}.,20{mtime}<cr>"
+
+set fillchars=vborder:|
+set wildstyle=popup
+set suggestoptions=normal,visual,view,otherpane,delay,keys,registers,marks
+
+" Date
+set timefmt=%m/%d/%Y\ %H:%M
+
+"""""
+" Mappings
+"""""
+" Quick exit
+nnoremap q :quit<cr>
+
+" Reload ViFM configuration file
+nnoremap <f5> :restart<cr>
+
+" Toggle show/hide hidden files
+nnoremap ,i za
+
+" Create new file
+nnoremap ,n :touch "filename"<cr>:rename<cr>
+
+" Start shell in current directory"
+nnoremap s :shell<cr>
+
+" Display sorting dialog
+nnoremap S :sort<cr>"
+
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
+
+" Extensions
+" PDF
+filetype *.pdf
+        \ {Open in Preview}
+        \ open -a Preview.app
+
+" Video
+filetype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+        \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+        \*.as[fx]
+       \ {Open in VLC}
+       \ open -a VLC.app
+
+" Image
+filetype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,
+       \ open -a Preview.app
+
+" Mount disk .img
+filetype *.img open
+
+" Mount .dmg archives
+filetype *.dmg open
+
+" Extract zip files
+filetype *.zip unzip %f
+fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
+
+" Extract tar archives
+filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz tar -xf %f
+fileviewer *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz tar -tf %f
+
+" Extract .bz2 archives
+filetype *.bz2 bzip2 -d %f
+
+" Extract .gz files
+filetype *.gz gunzip %f
+
+" Extract .rar files
+filetype *.rar unrar x %f
+
+" View HTML
+fileviewer *.html
+ \ w3m %c
+
+" Normal dirs
+fileview */ tree %c -L 2
+
+" Hidden dirs  
+fileview *./ tree %c -L 2
+
+" .. Parent dir
+fileview ../ tree %c -L 2
+
+" Enable view mode by default
+view

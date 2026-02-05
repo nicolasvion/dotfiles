@@ -1,0 +1,165 @@
+# ======================== #
+#         COLOR            #
+# ======================== #
+[color]
+    ui = true
+
+[color "branch"]
+    current = "#8FBCBB"
+    local = "#81A1C1"
+    remote = "#5E81AC"
+[color "decorate"]
+    HEAD = "#A3BE8C"
+    branch = "#8FBCBB"
+    grafted = "#EBCB8B"
+    remoteBranch = "#88C0D0"
+    stash = "#A3BE8C"
+    tag = "#B48EAD"
+[color "diff"]
+    meta = "#81A1C1"
+    frag = "#B48EAD"
+    old = "#BF616A"
+    new = "#A3BE8C"
+    # also the colour of %(decorate) decoration elements
+    commit = "#81A1C1"
+[color "grep"]
+    context = "#5E81AC"
+    filename = "#81A1C1"
+    lineNumber = "#88C0D0"
+    column = "#88C0D0"
+    function = "#4C566A"
+    match = "#3B4252 #88C0D0"
+    separator = "#4C566A"
+[color "status"]
+    added = "#A3BE8C"
+    changed = "#D08770"
+    untracked = "#88C0D0"
+
+# ======================== #
+#         DELTA            #
+# ======================== #
+[delta]
+    dark = true
+    keep-plus-minus-markers = false
+    navigate = true
+    paging = always
+    side-by-side = false
+    syntax-theme = Nord
+    pager = less -S
+
+    blame-code-style = syntax
+    blame-format = "{author:<20} ({commit:>10}) {timestamp:<15} "
+    blame-palette = "#2E3440" "#3B4252" "#434C5E" "#4C566A"
+
+    file-style = "#81A1C1"
+    file-decoration-style = "#434C5E" box
+    file-added-label = [+]
+    file-copied-label = [=]
+    file-modified-label = [~]
+    file-removed-label = [-]
+    file-renamed-label = [>]
+
+    hunk-header-decoration-style = "#434C5E" box
+    hunk-header-file-style = "#81A1C1"
+    hunk-header-line-number-style = "#B48EAD"
+    hunk-header-style = line-number syntax
+
+    line-numbers = true
+    line-numbers-minus-style = "#BF616A" italic
+    line-numbers-plus-style = "#A3BE8C" italic
+    line-numbers-zero-style = "#434C5E" italic
+    line-numbers-left-style = "#BF616A"
+    line-numbers-right-style = "#A3BE8C"
+    line-numbers-left-format = " {nm:>3} │"
+    line-numbers-right-format = " {np:>3} │"
+
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-style = "#D08770" bold
+    merge-conflict-ours-diff-header-decoration-style = "#434C5E" box
+    merge-conflict-theirs-diff-header-style = "#EBCB8B" bold
+    merge-conflict-theirs-diff-header-decoration-style = "#434C5E" box
+
+    minus-style = "#BF616A"
+    minus-emph-style = bold reverse "#BF616A"
+    minus-non-emph-style = "#BF616A"
+    minus-empty-line-marker-style = "#BF616A"
+    plus-style = "#A3BE8C"
+    plus-emph-style = bold reverse "#A3BE8C"
+    plus-non-emph-style = "#A3BE8C"
+    plus-empty-line-marker-style = "#BF616A"
+    zero-style = syntax
+
+    grep-file-style = "#81A1C1"
+    grep-header-decoration-style = "#434C5E" box
+    grep-line-number-style = "#A3BE8C" italic
+
+    whitespace-error-style = "reverse #B48EAD"
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+# ======================== #
+#         DIFF             #
+# ======================== #
+[diff]
+    tool = vimdiff3
+
+[difftool]
+    prompt = false
+
+[difftool "vimdiff3"]
+    path = nvim
+
+# ======================== #
+#         MERGE            #
+# ======================== #
+[merge]
+    conflictstyle = diff3
+    tool = diffconflicts
+
+[mergetool]
+    keepBackup = false
+
+[mergetool "diffconflicts"]
+    cmd = vim -c DiffConflicts \"${MERGED}\" \"${BASE}\" \"${LOCAL}\" \"${REMOTE}\"
+    trustExitCode = true
+# ======================== #
+#         PULL/PUSH        #
+# ======================== #
+[pull]
+    rebase = true
+
+[push]
+    default = simple
+
+[pager]
+    blame = delta
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[pretty]
+    ol = "format:%C(#81A1C1) %h%C(auto)%(decorate:prefix=  ,suffix=,pointer=  ,separator= ,tag= )%C(reset)  %s %C(#81A1C1) %cr %C(#5E81AC) %an <%ae>%C(reset)"
+
+[status]
+    short = true
+
+# ======================== #
+#         INCLUDE          #
+# ======================== #
+[include]
+    path = ~/.gitconfig.local
+    path = ~/.gitaliases
+
+# ======================== #
+#      BASE CONFIG         #
+# ======================== #
+[core]
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = ~/.gitignore
+    editor = nvim
+    # pager = diff-so-fancy | less --tabs=2 -rFX
+    pager = delta
+    autocrlf = input

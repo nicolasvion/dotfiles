@@ -1,0 +1,98 @@
+[alias]
+  mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+  unstage = reset HEAD --
+
+  diff = diff --word-diff
+
+# Checkout
+  co = checkout
+
+# Human Aliases
+  a = add .
+  cm = commit -am
+  psh = push origin master
+  unstage = reset -q HEAD --
+  discard = checkout --
+  uncommit = reset --mixed HEAD~
+
+# Fixup staged changes to specified commit
+  fixup = !sh -c 'REV=$(git rev-parse $1) && git commit --fixup $@ && git rebase -i --autosquash $REV^' -
+
+# Commit staged changes into specific commit w/o opening editor
+  fixit = "!f() { git commit --fixup=$1; GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash $1~1; }; f"
+
+# remove changes
+  scraplastcommit = reset --hard HEAD^
+
+# keep your changes
+  unwindlastcommit = reset --soft HEAD^
+
+# generate a changeset to reverse a previous commit.
+  reverselastcommit = revert HEAD
+  nevermind = !git reset --hard HEAD && git clean -d -f
+  graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+  precommit = diff --cached --diff-algorithm=minimal -w
+
+# List commits in short form, with colors and branch/tag annotations.
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate
+
+# List commits short form, tree
+  lst = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --abbrev-commit
+
+# List commits showing changed files
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --numstat
+
+# Log improved
+  logim = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
+# List with no colors if you need to chain the out put with Unix pipes:
+  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+
+# Pretty log
+  lol = log --pretty=ol
+  lolg = log --graph --pretty=ol
+  lola = lol --all
+
+# oneline commits showing dates
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --date=short
+
+# default look for short git log:
+  le = log --oneline --decorate
+
+# see all the commits related to a file, with the diff of the changes
+  filelog = log -u
+  fl = log -u
+
+# check what was in the last commit
+  dl = "!git ll -1"
+
+# Show a diff last commit:
+  dlc = diff --cached HEAD^
+
+# Diff uncommited changes
+  diffunc = diff --cached
+
+# Show content (full diff) of a commit given a revision:
+  dr  = "!f() { git diff "$1"^.."$1"; }; f"
+  lc  = "!f() { git ll "$1"^.."$1"; }; f"
+  diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+
+# Find a file path in codebase
+  f = "!git ls-files | grep -i"
+
+# Search/grep your entire codebase for a string:
+  grep = grep -Ii
+  gr = grep -Ii
+
+# Grep from root folder
+  gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+
+# List all Aliases, and these comments  //  la = "!git config -l | grep alias | cut -c 7-"
+  la = "!cat ~/.gitaliases | sed -n -e '/# Human Aliases/,$p' | grep '^\t\\|\\#'"
+
+# show last tag
+  lasttag = describe --tags --abbrev=0
+  lt = describe --tags --abbrev=0
+
+# show recent branches
+  short-recent = "for-each-ref --count=25 --sort=committerdate refs/heads/ --format='%(refname:short)'"

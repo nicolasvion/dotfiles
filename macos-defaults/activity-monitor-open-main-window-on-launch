@@ -1,0 +1,1 @@
+defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
