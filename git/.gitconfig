@@ -152,6 +152,7 @@
 [include]
     path = ~/.gitconfig.local
     path = ~/.gitaliases
+    path = ~/.gitusers
 
 # ======================== #
 #      BASE CONFIG         #
