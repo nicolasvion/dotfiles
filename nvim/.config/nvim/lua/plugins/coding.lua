@@ -117,6 +117,9 @@ return {
   {
     'honza/vim-snippets',
   },
+  {
+    'towolf/vim-helm',
+  },
 
   -- ============================================================================
   -- Linting & Formatting - ALE

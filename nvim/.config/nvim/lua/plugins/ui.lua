@@ -84,6 +84,9 @@ return {
     'szw/vim-maximizer',
     keys = ',z',
   },
+  {
+    'enricobacis/vim-airline-clock',
+  },
 
   -- ============================================================================
   -- Visual Helpers
