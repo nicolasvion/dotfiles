@@ -81,7 +81,7 @@ export NODE_NO_WARNINGS=1
 # Export for claude error
 export CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS="1"
 # Kubernetes stuff
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
 
 # Aliases
 alias ls='ls --color'

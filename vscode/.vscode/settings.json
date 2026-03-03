@@ -62,5 +62,6 @@
     "git.openRepositoryInParentFolders": "never",
     "clock.alignment": "Right",
     "editor.screenReaderAnnounceInlineSuggestion": false,
-    "editor.fontSize": 13
+    "editor.fontSize": 13,
+    "roo-cline.debug": false
 }
