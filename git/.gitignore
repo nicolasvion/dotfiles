@@ -3,6 +3,10 @@ nvim/.config/nvim/undodir/
 # Ansible
 .ansible
 
+# AI
+.claude/*
+CLAUDE.md
+
 # macOS
 .DS_Store
 .localized

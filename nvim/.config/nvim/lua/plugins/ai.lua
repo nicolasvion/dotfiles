@@ -18,10 +18,10 @@ return {
       if not ok then
         return
       end
-      
+
       local hostname = vim.fn.hostname()
       local tool = (hostname == "MacBook-Air-de-rin.local") and "gemini" or "claude"
-      
+
       sidekick.setup({
         nes = { enabled = false },
         cli = {
@@ -29,11 +29,11 @@ return {
           win = { layout = "right" },
           tools = {
             gemini = { cmd = { "gemini" } },
-            claude  = { cmd = { "claude" } },
+            claude  = { cmd = { "claude.sh" } },
           },
         },
       })
-      
+
       -- Keymaps
       local opts = { noremap = true, silent = true }
       vim.keymap.set("n", "<leader>ai", ":Sidekick cli toggle name=" .. tool .. "<CR>", opts)
