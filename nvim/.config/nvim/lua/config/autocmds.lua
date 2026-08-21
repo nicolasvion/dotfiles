@@ -110,17 +110,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   callback = trim_whitespace
 })
 
--- Update folds for Python
-local function update_folds()
-  vim.fn['SimpylFold#Recache']()
-  vim.cmd('FastFoldUpdate!')
-end
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.py',
-  callback = update_folds
-})
-
 -- ============================================================================
 -- Jump to Last Position
 -- ============================================================================
