@@ -82,6 +82,8 @@ export NODE_NO_WARNINGS=1
 export CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS="1"
 # Kubernetes stuff
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
+# Pip package mgmt
+export PIP_BREAK_SYSTEM_PACKAGES=1
 
 # Aliases
 alias ls='ls --color'
@@ -99,7 +101,7 @@ alias ossh="ssh -t bastion ssh '$@'"
 alias ossh-proxy="ssh -fN -L 8443:localhost:8443 -D 1234 bastion"
 alias ovault="vault"
 alias ovault-login="vault login -method=ldap username='nvion'"
-alias kubectl='/usr/local/share/google-cloud-sdk/bin/kubectl'
+# alias kubectl='/usr/local/share/google-cloud-sdk/bin/kubectl'
 alias awsec2instances=~/.bin/awsec2instances
 alias ls="eza --icons=always --long --no-filesize --no-time --no-user --no-permissions"
 

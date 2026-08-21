@@ -5,7 +5,10 @@ nvim/.config/nvim/undodir/
 
 # AI
 .claude/*
+.ai
+.opencode
 CLAUDE.md
+AGENTS.md
 
 # macOS
 .DS_Store
@@ -39,6 +42,7 @@ share/python-wheels/
 .env
 .idea/
 .pytest_cache/
+tmux/.tmux/plugins/
 .ipynb_checkpoints/
 profile_default/
 ipython_config.py
