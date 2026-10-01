@@ -27,6 +27,7 @@ __pycache__/
 *.pyd
 .Python
 env/
+graphify-out/
 venv/
 *.egg
 *.egg-info/
@@ -62,3 +63,5 @@ ssh/.ssh/config.d
 *.swp
 *.tmp
 *.log
+
+**/.claude/settings.local.json
